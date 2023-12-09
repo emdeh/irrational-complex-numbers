@@ -6,18 +6,23 @@ from matplotlib.animation import FuncAnimation
 r1 = 2.0  # Radius of the first circle
 r2 = 2.0  # Radius of the second circle
 omega1 = np.pi / 2  # Angular velocity of the first circle
-omega2 = np.pi / 1  # Angular velocity of the second circle
+omega2 = np.pi / 2  # Angular velocity of the second circle
 
 # Initialize the figure and axis
 fig, ax = plt.subplots()
 ax.set_facecolor('black') 
-line, = ax.plot([], [], 'w-', lw=1)  # 'o-' creates a line with circle markers
+line, = ax.plot([], [], 'w', lw=1)  # 'o-' creates a line with circle markers
+trace, = ax.plot([], [], 'w', lw=1)  # Trace line
 ax.set_xlim(-2 * (r1 + r2), 2 * (r1 + r2))
 ax.set_ylim(-2 * (r1 + r2), 2 * (r1 + r2))
+
+# Store the trace of the pendulum
+x_trace, y_trace = [], []
 
 # Initialization function: plot the background of each frame
 def init():
     line.set_data([], [])
+    trace.set_data([], [])
     return line,
 
 # Animation function: this is called sequentially
@@ -30,8 +35,15 @@ def animate(t):
     x2 = x1 + r2 * np.cos(omega2 * t)
     y2 = y1 + r2 * np.sin(omega2 * t)
 
+    # Update the pendulum line
     line.set_data([0, x1, x2], [0, y1, y2])
-    return line,
+
+    # Update the trace
+    x_trace.append(x2)
+    y_trace.append(y2)
+    trace.set_data(x_trace, y_trace)
+
+    return line, trace
 
 # Call the animator
 ani = FuncAnimation(fig, animate, init_func=init, frames=np.linspace(0, 20, 500), interval=20, blit=True)
