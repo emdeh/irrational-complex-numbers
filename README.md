@@ -48,3 +48,10 @@ Found on @fascinating.fractals with this caption:
 >The visual illustrates a setup where the outer arm is rotating golden ratio times faster than the inner arm.
 >
 >Since the golden ratio is an irrational number with infinite digits, the line would never connect to its starting Position, no matter how long, how fast we run this simulation. If you zoom in you'd always see the gap between those lines. Hence it fills every possible space enclosed within a circle.
+
+### Animations
+
+- **animation1.py** is based on the original concept as described above
+- **animiation2.py** is the same as animation1 but the angular velocity of the second arm is increased by the rate of pi after each revolution of the first arm
+- **animation3.py** is the same as animation1 but the angular velocity of both arms is increased by the rate of pi after each revolution
+- **animiation1a.py** same as animation1 but pretty colour tracings.
