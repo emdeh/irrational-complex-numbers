@@ -2,19 +2,22 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
-# Parameters for the circular motions
-r1 = 2.0  # Radius of the first circle
-r2 = 2.0  # Radius of the second circle
-omega1 = np.pi / 2  # Angular velocity of the first circle
-omega2 = np.pi / 2  # Angular velocity of the second circle
+# Golden Ratio
+phi = (1 + np.sqrt(5)) / 2
+
+# Parameters
+phi = (1 + np.sqrt(5)) / 2  # Golden Ratio
+r1, r2 = 3.0, 3.0  # Radii
+omega1 = np.pi / 2  # Angular velocity for the first arm
+omega2 = phi * omega1  # Angular velocity for the second arm
 
 # Initialize the figure and axis
 fig, ax = plt.subplots()
 ax.set_facecolor('black') 
 line, = ax.plot([], [], 'w', lw=1)  # 'o-' creates a line with circle markers
 trace, = ax.plot([], [], 'w', lw=1)  # Trace line
-ax.set_xlim(-2 * (r1 + r2), 2 * (r1 + r2))
-ax.set_ylim(-2 * (r1 + r2), 2 * (r1 + r2))
+ax.set_xlim(-8, 8)
+ax.set_ylim(-8, 8)
 
 # Store the trace of the pendulum
 x_trace, y_trace = [], []
@@ -49,3 +52,11 @@ def animate(t):
 ani = FuncAnimation(fig, animate, init_func=init, frames=np.linspace(0, 20, 500), interval=20, blit=True)
 
 plt.show()
+
+'''
+Animation Range and Speed: The frames parameter in FuncAnimation is  set to np.linspace(0, 20, 500), which means the animation will run from 0 to 20 seconds with 500 steps. Adjust these values to either speed up or slow down the animation or to make it run for a longer or shorter duration.
+
+Trace Accumulation: Accumulating the trace (x_trace.append(x2); y_trace.append(y2)) ensures that the path of the end of the second arm is traced over time. This will visually represent the complex pattern created by the combined rotations.
+
+Visualization Scaling: Set by the radii (r1, r2) (currently 3.0) and the plot limits (xlim, ylim) to ±8. This should give a clear view of the patterns without clipping, but adjust these if you want to zoom in or out.
+'''

@@ -28,3 +28,23 @@ sudo apt-get install python3-tk
 python3 concept.py # or the main.py
 
 ```
+
+## Credits and explanation
+
+Found on @fascinating.fractals with this caption:
+
+>The graph is visualized on complex plane, Here is the function :
+>
+>z(θ)=e^θi + e^Φθi
+>
+>θ = Angle made by the Inner Arm
+>e = Euler's constant
+>i = Imaginary number
+>
+>The first half of the equation e^θi represents the inner arm and second half of the equation represents the outer arm.
+>
+>This simulation animates the angle θ from 0 to approximately 150000 degrees.
+>
+>The visual illustrates a setup where the outer arm is rotating golden ratio times faster than the inner arm.
+>
+>Since the golden ratio is an irrational number with infinite digits, the line would never connect to its starting Position, no matter how long, how fast we run this simulation. If you zoom in you'd always see the gap between those lines. Hence it fills every possible space enclosed within a circle.
