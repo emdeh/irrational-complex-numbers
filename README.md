@@ -31,7 +31,7 @@ python3 concept.py # or the main.py
 
 ## Credits and explanation
 
-Found on @fascinating.fractals with this caption:
+Found on [@fascinating.fractals](https://www.instagram.com/reel/C0FFe1cI46a/?utm_source=ig_web_copy_link) with this caption:
 
 >The graph is visualized on complex plane, Here is the function :
 >

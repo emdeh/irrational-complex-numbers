@@ -74,3 +74,5 @@ def animate(theta_degrees):
 ani = FuncAnimation(fig, animate, init_func=init, frames=np.linspace(0, 15000, 5000), interval=30, blit=True)
 
 plt.show()
+
+# attempt to get the line trace to update to a new colour after each revolution but with the existing trace to retain its
